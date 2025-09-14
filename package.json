@@ -1,0 +1,16 @@
+{
+  "name": "user-management-dashboard",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm start",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "npm install"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
