@@ -1,0 +1,7 @@
+{
+  "name": "user-management-dashboard",
+  "version": "1.0.0",
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}
