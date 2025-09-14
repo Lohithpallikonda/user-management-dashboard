@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const UserForm = () => {
   const { id } = useParams();
+  const API_BASE = process.env.REACT_APP_API_URL || '';
   const navigate = useNavigate();
   const isEditing = Boolean(id);
 
@@ -26,7 +27,7 @@ const UserForm = () => {
   const fetchUser = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/${id}`);
+      const response = await axios.get(`${API_BASE}/api/users/${id}`);
       setUser(response.data.data);
       setError(null);
     } catch (err) {
@@ -58,10 +59,10 @@ const UserForm = () => {
 
     try {
       if (isEditing) {
-        await axios.put(`${process.env.REACT_APP_API_URL}/api/users/${id}`, user);
+        await axios.put(`${API_BASE}/api/users/${id}`, user);
         setSuccess('User updated successfully!');
       } else {
-        await axios.post(`${process.env.REACT_APP_API_URL}/api/users`, user);
+        await axios.post(`${API_BASE}/api/users`, user);
         setSuccess('User created successfully!');
         setUser({
           name: '',

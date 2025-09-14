@@ -1,6 +1,6 @@
 {
-  "name": "user-management-dashboard",
-  "version": "1.0.0",
+  "name": "api",
+  "private": true,
   "engines": {
     "node": "18.x"
   },
