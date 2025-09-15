@@ -2,6 +2,9 @@
   "installCommand": "npm install",
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/build",
+  "rewrites": [
+    { "source": "/api/users/:id", "destination": "/api/users?id=:id" }
+  ],
   "functions": {
     "api/**/*.js": {
       "runtime": "@vercel/node@5.3.22"
