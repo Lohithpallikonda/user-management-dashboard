@@ -36,7 +36,7 @@ const UserForm = () => {
     } finally {
       setLoading(false);
     }
-  }, [id]);
+  }, [id, API_BASE]);
 
   useEffect(() => {
     if (isEditing) {

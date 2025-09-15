@@ -2,10 +2,24 @@
   "name": "user-management-dashboard",
   "version": "1.0.0",
   "engines": {
-    "node": "22.x"
+    "node": ">=18.x"
   },
   "packageManager": "npm@10.8.1",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../api && npm install && cd ..",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "deploy:vercel": "./deploy.sh vercel",
+    "deploy:render": "./deploy.sh render",
+    "deploy:railway": "./deploy.sh railway",
+    "deploy:heroku": "./deploy.sh heroku",
+    "deploy:netlify": "./deploy.sh netlify"
+  },
   "dependencies": {
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

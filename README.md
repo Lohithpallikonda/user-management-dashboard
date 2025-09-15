@@ -173,16 +173,49 @@ user-management-dashboard/
 
 ## 🚀 Deployment
 
-### Backend Deployment
-1. Set the PORT environment variable
-2. Ensure SQLite database file is writable
-3. Install production dependencies: `npm install --production`
-4. Start the server: `npm start`
+This project is ready for deployment on multiple platforms. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
-### Frontend Deployment
-1. Build the production version: `npm run build`
-2. Serve the built files using a web server
-3. Update API endpoints to point to your deployed backend
+### Quick Deploy Options
+
+**🔷 Vercel (Recommended for Serverless)**
+```bash
+npm install -g vercel
+vercel --prod
+```
+
+**🟣 Render (Recommended for Full-Stack)**
+- Connect your GitHub repository to Render
+- Uses `render.yaml` for automatic deployment
+
+**🚂 Railway**
+```bash
+npm install -g @railway/cli
+railway login && railway deploy
+```
+
+**🟪 Heroku**
+```bash
+git push heroku main
+```
+
+**🟢 Netlify (Frontend Only)**
+```bash
+npm install -g netlify-cli
+cd frontend && npm run build
+netlify deploy --prod --dir=build
+```
+
+### Using Deployment Script
+```bash
+chmod +x deploy.sh
+./deploy.sh vercel    # or render, railway, heroku, netlify
+```
+
+### Environment Variables Required
+- `REACT_APP_API_URL`: Backend API URL for frontend
+- `NODE_ENV`: Set to 'production' for backend
+- `CORS_ORIGIN`: Frontend URL for CORS configuration
+- `DATABASE_URL`: Database connection string (upgrade from SQLite for production)
 
 ## 🧪 Testing the Application
 
