@@ -2,7 +2,7 @@
   "name": "user-management-dashboard",
   "version": "1.0.0",
   "engines": {
-    "node": "22.x"
+    "node": "18.x"
   },
   "packageManager": "npm@10.8.1",
   "dependencies": {
