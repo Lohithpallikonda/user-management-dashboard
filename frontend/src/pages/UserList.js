@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,13 +8,9 @@ const UserList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
   const API_BASE = process.env.REACT_APP_API_URL || '';
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get(`${API_BASE}/api/users`);
@@ -26,7 +22,11 @@ const UserList = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_BASE]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
 
   const deleteUser = async (id) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
