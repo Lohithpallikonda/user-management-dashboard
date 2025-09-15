@@ -1,10 +1,13 @@
 # Dependencies
 node_modules/
 */node_modules/
+package-lock.json
+*/package-lock.json
 
 # Database
 *.db
 backend/users.db
+backend/database.db
 
 # Environment variables
 .env
@@ -16,6 +19,13 @@ backend/users.db
 # Build outputs
 frontend/build/
 frontend/dist/
+build/
+dist/
+
+# Deployment artifacts
+.vercel
+.netlify
+.railway
 
 # Logs
 npm-debug.log*
@@ -47,3 +57,8 @@ coverage/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Temporary files
+/tmp
+*.tmp
+*.temp

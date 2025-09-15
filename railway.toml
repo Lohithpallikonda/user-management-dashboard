@@ -1,0 +1,19 @@
+# Railway deployment configuration
+# Frontend service
+[frontend]
+  builder = "nixpacks"
+  buildCommand = "cd frontend && npm install && npm run build"
+  startCommand = "npx serve -s frontend/build -p $PORT"
+
+# Backend service  
+[backend]
+  builder = "nixpacks"
+  buildCommand = "cd backend && npm install"
+  startCommand = "cd backend && npm start"
+
+[backend.variables]
+  NODE_ENV = "production"
+  PORT = "8080"
+
+[frontend.variables]
+  REACT_APP_API_URL = "https://${{RAILWAY_STATIC_URL}}"
